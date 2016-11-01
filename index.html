@@ -30,7 +30,7 @@
 	<script type="text/javascript">
     if(navigator.serviceWorker){
         navigator.serviceWorker
-            .register('/sw.js')
+            .register('./sw.js')
             .then((registration) => {console.log('Service Worker Registered. ', registration)})
             .catch((error) => {console.log('ServiceWorker registration failed: ', error)})
     	}
