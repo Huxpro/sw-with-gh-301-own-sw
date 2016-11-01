@@ -8,7 +8,9 @@
     </style>
 </head>
 <body>
+    <p>
 	This is a demo.
+    </p>
     
     <a href="https://huangxuan.me/sw-with-gh-301">https://huangxuan.me/sw-with-gh-301</a>
     <a href="https://huangxuan.me/sw-with-gh-301/">https://huangxuan.me/sw-with-gh-301/</a>
@@ -16,7 +18,7 @@
     <a href="https://github.com/Huxpro/huxpro.github.io/blob/master/sw.js">The Service Worker Codes</a>
 
     <p>
-        When requesting <code>https://huangxuan.me/sw-with-gh-301</code>, which should be redirect to <code>https://huangxuan.me/sw-with-gh-301/</code> normally
+        When requesting <code>/sw-with-gh-301</code>, which should be redirected to <code>/sw-with-gh-301/</code> normally:
         <ol>
             <li>SW intercepts <code>https://huangxuan.me/sw-with-gh-301</code></li>
             <li>Replace with <code>https://huangxuan.me/sw-with-gh-301?${randomQuery}</code> (for caching-bust & revalidate)</li>
