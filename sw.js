@@ -73,8 +73,9 @@ self.addEventListener('fetch', event => {
           })
             .then(networkResponse => {
               // Fetch API not throw error on 404, 500 etc
-              if (!networkResponse.ok) throw Error('Not ok');
-              var resUrl = networkResponse.url
+              // if (!networkResponse.ok) return caches.match('404.html')
+              if (!networkResponse.ok) throw Error('not OK')
+
               cache.put(event.request, networkResponse.clone())
               return networkResponse;
             })
