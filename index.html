@@ -2,31 +2,46 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>sw-with-gh-301</title>
+	<title>sw-with-gh-301-own-sw</title>
     <style type="text/css">
         a{display:block;}
     </style>
 </head>
 <body>
-    <p>
-	This is a demo.
-    </p>
+    <h1> SW with gh-pages - Own SW</h1>
     
-    <a href="https://huangxuan.me/sw-with-gh-301">https://huangxuan.me/sw-with-gh-301</a>
-    <a href="https://huangxuan.me/sw-with-gh-301/">https://huangxuan.me/sw-with-gh-301/</a>
-    <a href="https://huangxuan.me/sw-with-gh-301?query">https://huangxuan.me/sw-with-gh-301?query</a>
-    <a href="https://github.com/Huxpro/sw-with-gh-301/blob/master/sw.js">The Service Worker Codes</a>
+    <a href="https://huangxuan.me/sw-with-gh-301-own-sw">https://huangxuan.me/sw-with-gh-301-own-sw</a>
+    <a href="https://huangxuan.me/sw-with-gh-301-own-sw/">https://huangxuan.me/sw-with-gh-301-own-sw/</a>
+    <a href="https://huangxuan.me/sw-with-gh-301-own-sw?query">https://huangxuan.me/sw-with-gh-301-own-sw?query</a>
+    <a href="https://github.com/Huxpro/sw-with-gh-301-own-sw/blob/master/sw.js">The Service Worker Codes (located at <code>sw-with-gh-301-own-sw/blob/master/sw.js</code></a>
     <a href="fakedURL/"> 404.html (online) or offline.html(offline) </a>
+    
+    <h3> In this DEMO. The SW is registered under <code>huangxuan.me/sw-with-gh-301-own-sw/</code></h3>
 
     <p>
-        When requesting <code>/sw-with-gh-301</code>, which should be redirected to <code>/sw-with-gh-301/</code> normally:
+        Visit <code>/sw-with-gh-301-own-sw</code> Without SW:
         <ol>
-            <li>SW intercepts <code>https://huangxuan.me/sw-with-gh-301</code></li>
-            <li>Replace with <code>https://huangxuan.me/sw-with-gh-301?${randomQuery}</code> (for caching-bust & revalidate)</li>
-            <li>Github Pages not redirect it to <code>https://huangxuan.me/sw-with-gh-301/${randomQuery}</code>, it response with 404 instead 
-            <li>Response not ok, can not cache and nothing to display...</li>
+            <li>Github Pages redirect <code>/sw-with-gh-301-own-sw</code> to <code>/sw-with-gh-301-own-sw/</code>
+            <li>Done</li>
         </ol>
     </p>
+
+    <p>
+        Visit <code>/sw-with-gh-301-own-sw</code> With SW:
+        <ol>
+            <li>There is no SW avaliable under <code>/sw-with-gh-301-own-sw</code> 
+            <li>Github Pages redirect <code>/sw-with-gh-301-own-sw</code> to <code>/sw-with-gh-301-own-sw/</code>
+            <li> Register SW in the first time, and SW intercept <code>/sw-with-gh-301-own-sw</code> in revisit</li>
+            <li>SW replace it with <code>https://huangxuan.me/sw-with-gh-301/?${randomQuery}</code> (for caching-bust & revalidate)</li>
+            <li>Done</li>
+        </ol>
+    </p>
+    
+    <h3> Comparision </h3>
+    <ul>
+        <li><a href="https://huangxuan.me/sw-with-gh-301/">https://huangxuan.me/sw-with-gh-301/</a></li>
+        <li><a href="https://huangxuan.me/sw-with-gh-301-own-sw/">https://huangxuan.me/sw-with-gh-301-own-sw/</a></li>
+    </ul>
 
 	<script type="text/javascript">
     if(navigator.serviceWorker){
