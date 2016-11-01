@@ -53,19 +53,22 @@ self.addEventListener('activate',  event => {
  *  void respondWith(Promise<Response> r);
  */
 self.addEventListener('fetch', event => {
-  // Skip some of cross-origin requests, like those for Google Analytics.
+  // log for debugging
   console.log("fetch", event.request.url)
+
+  // Skip some of cross-origin requests, like those for Google Analytics.
   if (HOSTNAME_WHITELIST.indexOf(new URL(event.request.url).hostname) > -1) {
+
     // Stale-while-revalidate 
-    // similar to HTTP's stale-while-revalidate: https://www.mnot.net/blog/2007/12/12/stale
+    // ready to upgrade to https://gist.github.com/surma/eb441223daaedf880801ad80006389f1.
     event.respondWith(
       caches.open(RUNTIME).then(cache => {
         return caches.match(event.request).then(cachedResponse => {
           // fetch(httpURL) is active mixed content, fetch(httpRequest) is not supported yet...
           var fixedUrl = event.request.url.replace('http://', '//')
-          // cache busting
+          // query as cache busting
           var fetchPromise = fetch(`${fixedUrl}?${Math.random()}`,  {
-            cache: "no-store",
+            cache: "no-store",  
             redirect: "follow"
           })
             .then(networkResponse => {
@@ -77,10 +80,8 @@ self.addEventListener('fetch', event => {
             })
             .catch(error => {
               console.log(error);
-              // for navigation requests, fallback to offline.html
-              if(event.request.url.substr(-1) == "/") {
-                return caches.match('offline.html')
-              }
+              // fallback to offline.html
+              return caches.match('offline.html')
             })
         
           // Return the response from cache or wait for network.
