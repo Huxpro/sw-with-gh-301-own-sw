@@ -14,7 +14,7 @@
     <a href="https://huangxuan.me/sw-with-gh-301-own-sw/">https://huangxuan.me/sw-with-gh-301-own-sw/</a>
     <a href="https://huangxuan.me/sw-with-gh-301-own-sw?query">https://huangxuan.me/sw-with-gh-301-own-sw?query</a>
     <a href="https://github.com/Huxpro/sw-with-gh-301-own-sw/blob/master/sw.js">The Service Worker Codes (located at <code>sw-with-gh-301-own-sw/blob/master/sw.js</code></a>
-    <a href="fakedURL/"> 404.html (online) or offline.html(offline) </a>
+    <!--<a href="fakedURL/"> 404.html (online) or offline.html(offline) </a>-->
     
     <h3> In this DEMO. The SW is registered under <code>huangxuan.me/sw-with-gh-301-own-sw/</code></h3>
 
@@ -34,6 +34,19 @@
             <li> Register SW in the first time, and SW intercept <code>/sw-with-gh-301-own-sw</code> in revisit</li>
             <li>SW replace it with <code>https://huangxuan.me/sw-with-gh-301/?${randomQuery}</code> (for caching-bust & revalidate)</li>
             <li>Done</li>
+        </ol>
+    </p>
+
+    <p>
+        <b>Visit <code>/sw-with-gh-301-own-sw</code> With SW after visiting <a href="https://huangxuan.me">https://huangxuan.me ("The Parent")</a></b>
+        <ol>
+            <li>The parent SW registerd </li> 
+            <li>Though own SW is not avaliable under <code>/sw-with-gh-301-own-sw</code>, but the parent SW do....</li>
+            <li>Parent SW intercepts <code>https://huangxuan.me/sw-with-gh-301-own-sw</code></li>
+            <li>Replace with <code>https://huangxuan.me/sw-with-gh-301-own-sw?${randomQuery}</code> (for caching-bust & revalidate)</li>
+            <li>Github Pages wont redirect it to <code>https://huangxuan.me/sw-with-gh-301-own-sw/${randomQuery}</code>, it response with 404 instead 
+            <li>Response not ok, can not cache and nothing to display...</li>
+            <li>Future Revisit performs exactly same with <a href="https://huangxuan.me/sw-with-gh-301/">https://huangxuan.me/sw-with-gh-301/</a></li>
         </ol>
     </p>
     
