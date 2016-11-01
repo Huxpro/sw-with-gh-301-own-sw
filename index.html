@@ -15,6 +15,16 @@
     <a href="https://huangxuan.me/sw-with-gh-301?query">https://huangxuan.me/sw-with-gh-301?query</a>
     <a href="https://github.com/Huxpro/huxpro.github.io/blob/master/sw.js">The Service Worker Codes</a>
 
+    <p>
+        When requesting <code>https://huangxuan.me/sw-with-gh-301</code>, which should be redirect to <code>https://huangxuan.me/sw-with-gh-301/</code> normally
+        <ol>
+            <li>SW intercepts <code>https://huangxuan.me/sw-with-gh-301</code></li>
+            <li>Replace with <code>https://huangxuan.me/sw-with-gh-301?${randomQuery}</code> (for caching-bust & revalidate)</li>
+            <li>Github Pages not redirect it to <code>https://huangxuan.me/sw-with-gh-301/${randomQuery}</code>, it response with 404 instead 
+            <li>Response not ok, can not cache and nothing to display...</li>
+        </ol>
+    </p>
+
 	<script type="text/javascript">
     if(navigator.serviceWorker){
         navigator.serviceWorker
