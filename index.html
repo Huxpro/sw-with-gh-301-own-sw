@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>sw-with-gh-301</title>
+</head>
+<body>
+	This is a demo.
+    
+    <a href="https://huangxuan.me/sw-with-gh-301">https://huangxuan.me/sw-with-gh-301</a>
+    <a href="https://huangxuan.me/sw-with-gh-301/">https://huangxuan.me/sw-with-gh-301/</a>
+    <a href="https://huangxuan.me/sw-with-gh-301?query">https://huangxuan.me/sw-with-gh-301?query</a>
+    
+    <a href="https://github.com/Huxpro/huxpro.github.io/blob/master/sw.js">The Service Worker Codes</a>
+
+	<script type="text/javascript">
+    if(navigator.serviceWorker){
+        navigator.serviceWorker
+            .register('/sw.js')
+            .then((registration) => {console.log('Service Worker Registered. ', registration)})
+            .catch((error) => {console.log('ServiceWorker registration failed: ', error)})
+    	}
+	</script>
+</body>
+</html>
